@@ -73,3 +73,8 @@ fun BaseRow(
     }
     Divider(color = MaterialTheme.colors.background, thickness = 1.dp, modifier = modifier)
 }
+
+fun <E> List<E>.extractProportions(selector: (E) -> Float): List<Float> {
+    val total = this.sumOf { selector(it).toDouble() }
+    return this.map { (selector(it) / total).toFloat() }
+}

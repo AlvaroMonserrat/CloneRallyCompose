@@ -14,6 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.rrat.clonerallycompose.Overview
@@ -61,6 +63,7 @@ fun RallyTab(
         modifier = Modifier
             .padding(16.dp)
             .height(TabHeight)
+            .clearAndSetSemantics { contentDescription = titleTab }
             .selectable(
                 selected = selected,
                 onClick = onSelected,
